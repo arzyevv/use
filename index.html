@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Use — a minimal browser for macOS</title>
+<meta name="description" content="Use is a minimal browser for macOS. The page gets the whole window; everything else stays out of the way until you need it.">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#ffffff">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Use — a minimal browser for macOS">
+<meta property="og:description" content="The page gets the whole window. Everything else stays out of the way.">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preload" href="assets/Inter-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<style>
+@font-face { font-family: "Inter"; src: url("assets/Inter-Regular.ttf") format("truetype"); font-weight: 400; font-display: swap; }
+:root { --ink: #0b0b0b; --dim: rgba(11, 11, 11, 0.5); --line: rgba(11, 11, 11, 0.1); --ease: cubic-bezier(0.22, 1, 0.36, 1); }
+* { box-sizing: border-box; margin: 0; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  min-height: 100vh; min-height: 100svh; display: flex; flex-direction: column; align-items: center;
+  padding: 0 20px; background: #fff; color: var(--ink);
+  font: 400 15px/24px "Inter", -apple-system, "Helvetica Neue", sans-serif; letter-spacing: 0.01em;
+  -webkit-font-smoothing: antialiased;
+}
+main { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 72px 0 48px; max-width: 420px; }
+main > * { opacity: 0; transform: translateY(8px); }
+.ready main > * { opacity: 1; transform: none; transition: opacity 520ms var(--ease), transform 520ms var(--ease); transition-delay: calc(var(--i) * 70ms); }
+svg { display: block; }
+h1 { margin-top: 20px; font-size: 28px; line-height: 36px; font-weight: 400; letter-spacing: -0.01em; }
+.lead { margin-top: 8px; color: var(--dim); }
+.btn {
+  position: relative; margin-top: 32px; display: inline-flex; align-items: center; height: 44px; padding: 0 24px;
+  border-radius: 22px; background: var(--ink); color: #fff; text-decoration: none; overflow: hidden;
+}
+.btn::after { content: ""; position: absolute; inset: 0; background: #fff; opacity: 0; transition: opacity 180ms var(--ease); }
+.btn:hover::after { opacity: 0.14; }
+.btn:active::after { opacity: 0.26; }
+.btn:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+.fine { margin-top: 14px; font-size: 13px; line-height: 20px; color: var(--dim); }
+.ways { width: 100%; margin-top: 40px; border-top: 1px solid var(--line); text-align: left; font-size: 13px; line-height: 20px; color: var(--dim); }
+.ways section { padding: 20px 0; border-bottom: 1px solid var(--line); }
+.ways h2 { font-size: 13px; line-height: 20px; font-weight: 400; color: var(--ink); }
+.ways p { margin-top: 2px; }
+.ways b { font-weight: 400; color: var(--ink); }
+.cmd { margin-top: 12px; display: flex; align-items: center; height: 40px; border-radius: 12px; background: rgba(11, 11, 11, 0.045); }
+.cmd code {
+  flex: 1; min-width: 0; padding: 0 14px; overflow-x: auto; white-space: nowrap; scrollbar-width: none;
+  font: 12px/40px ui-monospace, "SF Mono", Menlo, monospace; letter-spacing: 0; color: var(--ink);
+}
+.cmd code::-webkit-scrollbar { display: none; }
+.cmd button {
+  position: relative; flex: none; height: 28px; margin-right: 6px; padding: 0 12px; border: 0; border-radius: 14px;
+  background: transparent; color: var(--dim); font: inherit; cursor: pointer; transition: color 180ms var(--ease);
+}
+.cmd button::before { content: ""; position: absolute; inset: 0; border-radius: inherit; background: var(--ink); opacity: 0; transition: opacity 180ms var(--ease); }
+.cmd button:hover { color: var(--ink); }
+.cmd button:hover::before { opacity: 0.06; }
+.cmd button:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+.cmd button span { position: relative; display: block; transition: opacity 180ms var(--ease); }
+.cmd button .b { position: absolute; inset: 0; line-height: 28px; text-align: center; opacity: 0; }
+.cmd button.done .a { opacity: 0; }
+.cmd button.done .b { opacity: 1; }
+footer { padding: 0 0 28px; font-size: 13px; line-height: 20px; color: var(--dim); }
+footer a { color: inherit; text-decoration: none; transition: color 180ms var(--ease); }
+footer a:hover { color: var(--ink); }
+@media (prefers-reduced-motion: reduce) { main > * { opacity: 1; transform: none; transition: none !important; } }
+</style>
+</head>
+<body>
+<main>
+  <svg style="--i:0" width="40" height="40" viewBox="0 0 240 240" fill="none" aria-hidden="true">
+    <path d="M15 131.832L15 73.2135C15 53.5363 29.9082 36.6123 37.691 29.1179C39.4972 27.3785 42.5014 28.6643 42.8826 31.1427C45.2766 46.7077 57.5081 86.4693 120 86.4693C182.492 86.4693 194.723 46.7076 197.117 31.1427C197.499 28.6643 200.503 27.3785 202.309 29.1179C210.092 36.6123 225 53.5363 225 73.2135V131.832C225 183.287 177.99 225 120 225C62.0101 225 15 183.287 15 131.832Z" fill="url(#mark)"/>
+    <defs><linearGradient id="mark" x1="120" y1="25" x2="120" y2="225" gradientUnits="userSpaceOnUse"><stop/><stop offset="1" stop-color="#5C535C"/></linearGradient></defs>
+  </svg>
+  <h1 style="--i:1">Use</h1>
+  <p class="lead" style="--i:2">A minimal browser for macOS. The page gets the whole window; everything else stays out of the way.</p>
+  <a class="btn" style="--i:3" href="https://github.com/arzyevv/use/releases/latest/download/Use.dmg">Download for Mac</a>
+  <p class="fine" style="--i:4">Apple Silicon · macOS 15.4 or later · Free</p>
+  <div class="ways" style="--i:5">
+    <section>
+      <h2>From the download</h2>
+      <p>Drag Use to Applications and open it. macOS blocks it the first time: allow it once in <b>System Settings ▸ Privacy &amp; Security ▸ Open Anyway</b>.</p>
+    </section>
+    <section>
+      <h2>From Terminal</h2>
+      <p>Installs and opens Use, with nothing to allow.</p>
+      <div class="cmd">
+        <code id="cmd">curl -fsSL https://arzyevv.github.io/use/install.sh | sh</code>
+        <button type="button" id="copy" aria-label="Copy the command"><span class="a">Copy</span><span class="b" aria-hidden="true">Copied</span></button>
+      </div>
+    </section>
+  </div>
+  <p class="fine" style="--i:6">Updates are built in: Use ▸ Check for Updates.</p>
+</main>
+<footer><a href="mailto:hi.arzayevv@gmail.com">hi.arzayevv@gmail.com</a></footer>
+<script>
+(function () {
+  var go = function () { requestAnimationFrame(function () { document.documentElement.classList.add("ready"); }); };
+  if (document.fonts && document.fonts.ready) { document.fonts.ready.then(go); setTimeout(go, 1200); } else { go(); }
+
+  var copy = document.getElementById("copy"), timer;
+  copy.addEventListener("click", function () {
+    var text = document.getElementById("cmd").textContent;
+    var done = function () {
+      copy.classList.add("done");
+      clearTimeout(timer);
+      timer = setTimeout(function () { copy.classList.remove("done"); }, 1600);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done, function () {});
+    } else {
+      var range = document.createRange();
+      range.selectNodeContents(document.getElementById("cmd"));
+      var sel = window.getSelection();
+      sel.removeAllRanges();
+      sel.addRange(range);
+      if (document.execCommand("copy")) done();
+    }
+  });
+})();
+</script>
+</body>
+</html>
