@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Use — a minimal browser for macOS</title>
+<meta name="description" content="Use is a minimal, modern browser for macOS. The page gets the whole window; tabs, the address bar and everything else stay out of the way until you need them.">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#ffffff">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Use — a minimal browser for macOS">
+<meta property="og:description" content="The page gets the whole window. Everything else stays out of the way until you need it.">
+<meta property="og:image" content="assets/light-compact.png">
+<meta property="og:image:width" content="1024">
+<meta property="og:image:height" content="602">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preload" href="assets/Inter-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="stylesheet" href="style.css">
+<script>document.documentElement.className = 'js';</script>
+</head>
+<body>
+
+<header class="header">
+  <div class="wrap header-in">
+    <a class="brand" href="#top" aria-label="Use, home">
+      <img src="assets/mark.svg" alt="" width="22" height="22">
+      <span>Use</span>
+    </a>
+    <a class="btn btn-sm" href="#install" data-download>Download</a>
+  </div>
+</header>
+<div class="spacer" aria-hidden="true"></div>
+
+<main id="top">
+
+  <section class="hero wrap">
+    <div class="hero-copy intro">
+      <h1>The page gets<br>the whole window.</h1>
+      <p class="lead">Use is a minimal browser for macOS. Tabs, the address bar and everything else stay out of the way until you need them.</p>
+      <div class="cta">
+        <a class="btn" href="#install" data-download>Download for Mac</a>
+        <p class="fine">Apple Silicon · macOS 15.4 or later · Free</p>
+      </div>
+    </div>
+
+    <div class="hero-shot intro" data-switch="theme">
+      <div class="switch" role="tablist" aria-label="Theme">
+        <span class="thumb" aria-hidden="true"></span>
+        <button type="button" role="tab" aria-selected="true" data-i="0">Dark</button>
+        <button type="button" role="tab" aria-selected="false" data-i="1">Light</button>
+      </div>
+      <div class="shot stack">
+        <img class="on" src="assets/dark-compact.png" width="1024" height="602" alt="Use in dark appearance with a compact sidebar">
+        <img src="assets/light-compact.png" width="1024" height="602" alt="Use in light appearance with a compact sidebar">
+      </div>
+    </div>
+  </section>
+
+  <section class="feature wrap" id="layouts">
+    <div class="copy rise">
+      <h2>Three layouts, one button.</h2>
+      <p>Expanded sidebar, compact sidebar, hidden. Or put the tabs on top. When the chrome is hidden, move to the left or top edge and it slides in over the page.</p>
+    </div>
+    <div class="rise" data-switch="layout">
+      <div class="switch" role="tablist" aria-label="Layout">
+        <span class="thumb" aria-hidden="true"></span>
+        <button type="button" role="tab" aria-selected="true" data-i="0">Sidebar</button>
+        <button type="button" role="tab" aria-selected="false" data-i="1">Compact</button>
+        <button type="button" role="tab" aria-selected="false" data-i="2">Hidden</button>
+        <button type="button" role="tab" aria-selected="false" data-i="3">Tabs on top</button>
+      </div>
+      <div class="shot stack">
+        <img class="on" src="assets/dark-expanded.png" width="1024" height="602" loading="lazy" alt="Expanded sidebar with a list of tabs">
+        <img src="assets/dark-compact.png" width="1024" height="602" loading="lazy" alt="Compact sidebar showing only tab icons">
+        <img src="assets/dark-hidden.png" width="1024" height="602" loading="lazy" alt="Hidden chrome, the page fills the window">
+        <img src="assets/dark-top.png" width="1024" height="602" loading="lazy" alt="Tabs on top of the window">
+      </div>
+    </div>
+  </section>
+
+  <section class="feature wrap" id="spaces">
+    <div class="copy rise">
+      <h2>Spaces.</h2>
+      <p>Separate sets of tabs in one window. Swipe the sidebar sideways to switch, and swipe past the last one to start a new space and name it.</p>
+    </div>
+    <div class="shot rise">
+      <img src="assets/light-new.png" width="1024" height="602" loading="lazy" alt="A quiet new tab page with a single field, Type to go">
+    </div>
+  </section>
+
+  <section class="feature wrap" id="extensions">
+    <div class="copy rise">
+      <h2>Chrome extensions.</h2>
+      <p>Open an extension's page in the Chrome Web Store and install it with the corner button at the top right. The same panel lists every extension and what it is doing on the current site.</p>
+    </div>
+    <div class="shot rise">
+      <img src="assets/light-top.png" width="1024" height="602" loading="lazy" alt="Use with tabs on top and the extensions button in the top right corner">
+    </div>
+  </section>
+
+  <section class="feature wrap" id="rest">
+    <div class="copy rise">
+      <h2>Quiet, and complete.</h2>
+      <p>A built-in ad blocker, bookmarks with folders, downloads, find in page and history. Import from Safari, Chrome, Arc and others. Settings live in the menu bar, not in the window.</p>
+    </div>
+    <div class="shot rise">
+      <img src="assets/light-suggest.png" width="1024" height="602" loading="lazy" alt="The address bar showing suggestions from history and search">
+    </div>
+  </section>
+
+  <section class="install wrap" id="install">
+    <div class="copy rise">
+      <h2>Install.</h2>
+      <p>Free, for Macs with Apple Silicon running macOS 15.4 or later.</p>
+      <a class="btn" href="#install" data-download>Download for Mac</a>
+    </div>
+    <ol class="steps rise">
+      <li>
+        <span class="n">1</span>
+        <p>Open the downloaded <b>Use.dmg</b>.</p>
+      </li>
+      <li>
+        <span class="n">2</span>
+        <p>Drag <b>Use</b> to Applications.</p>
+      </li>
+      <li>
+        <span class="n">3</span>
+        <p>On first launch macOS says it cannot verify the app, because the build is not notarized yet. Open <b>System Settings ▸ Privacy &amp; Security</b> and press <b>Open Anyway</b>.</p>
+      </li>
+    </ol>
+    <p class="note rise">Updates are built in afterwards: <b>Use ▸ Check for Updates</b>.</p>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-in">
+    <a class="brand" href="#top" aria-label="Use, back to top">
+      <img src="assets/mark.svg" alt="" width="22" height="22">
+      <span>Use</span>
+    </a>
+    <div class="links">
+      <a href="#install" data-download>Download</a>
+      <span>Feedback: <a href="mailto:hi.arzayevv@gmail.com">hi.arzayevv@gmail.com</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
